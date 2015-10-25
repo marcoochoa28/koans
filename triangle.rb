@@ -15,7 +15,34 @@
 #
 def triangle(a, b, c)
   # WRITE THIS CODE
+	hipotenusa, lado1, lado2 = 
+		if c > a || c > b
+			[c,a,b]
+		elsif b > a || b > c
+			[b,a,c]
+		else
+			[a,b,c]
+		end
+	
+
+	if a <= 0 || b <= 0 || c <= 0
+		raise TriangleError
+	elsif lado1 + lado2 <= hipotenusa
+		raise TriangleError
+	end
+
+
+    type = 
+
+    	if hipotenusa == lado1 && hipotenusa == lado2
+			:equilateral
+		elsif hipotenusa == lado1 || hipotenusa == lado2
+			:isosceles
+		else
+			:scalene
+		end
 end
+
 
 # Error class used in part 2.  No need to change this code.
 class TriangleError < StandardError
