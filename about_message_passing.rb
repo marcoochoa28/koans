@@ -157,7 +157,7 @@ class AboutMessagePassing < Neo::Koan
   def test_non_foo_messages_are_treated_normally
     catcher = WellBehavedFooCatcher.new
 
-    assert_raise(___) do
+    assert_raise(NoMethodError) do
       catcher.normal_undefined_method
     end
   end
@@ -178,8 +178,8 @@ class AboutMessagePassing < Neo::Koan
   def test_explicitly_implementing_respond_to_lets_objects_tell_the_truth
     catcher = WellBehavedFooCatcher.new
 
-    assert_equal __, catcher.respond_to?(:foo_bar)
-    assert_equal __, catcher.respond_to?(:something_else)
+    assert_equal true, catcher.respond_to?(:foo_bar)
+    assert_equal false, catcher.respond_to?(:something_else)
   end
 
 end
